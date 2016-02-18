@@ -1,0 +1,47 @@
+// Media query mixins 
+@mixin small()
+  @media #{$breakpoint-sm}
+    @content
+
+@mixin medium()
+  @media #{$breakpoint-md}
+    @content
+
+@mixin large()
+  @media #{$breakpoint-lg}
+    @content
+
+
+// Styles
+#debug
+  position: fixed
+  z-index: 10
+  bottom: 0
+  right: 0
+  width: 100px
+  height: 20px
+  text-align: center
+  font-size: 12px
+  line-height: 22px
+  color: $white
+  background: $aqua
+  &:after
+    content: "No media query"
+
+  +small()
+    color: $white
+    background: $green
+    &:after
+      content: "small"
+
+  +medium()
+    color: $white
+    background: $yellow
+    &:after
+      content: "medium"
+
+  +large()
+    color: $white
+    background: $fuschia
+    &:after
+      content: "large"
